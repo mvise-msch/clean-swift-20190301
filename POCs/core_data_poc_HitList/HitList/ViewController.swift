@@ -11,18 +11,18 @@ import CoreData
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var m_tvxTableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
-    // without Core Data -> var m_saNames: [String] = []
+    // without Core Data -> var names: [String] = []
     // with Core Data
-    var m_moxaPeople: [NSManagedObject] = []
+    var people: [NSManagedObject] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "The List"
         
-        m_tvxTableView.register(UITableViewCell.self, forCellReuseIdentifier: "20190303153600")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "20190303153600")
         
     }
     
@@ -41,53 +41,53 @@ class ViewController: UIViewController {
         
         // 3
         do {
-            m_moxaPeople = try mocManagedContext.fetch(frxFetchRequest)
+            people = try mocManagedContext.fetch(frxFetchRequest)
         } catch let exxError as NSError {
             print("Could not fetch. \(exxError), \(exxError.userInfo)")
         }
     }
 
-    @IBAction func f_addName(_ sender: Any) {
-        let acxAlert = UIAlertController(title: "New Name", message: "Add a new name", preferredStyle: .alert)
-        let aaxSaveAction = UIAlertAction(title: "Save", style: .default) {
+    @IBAction func addName(_ sender: Any) {
+        let alert = UIAlertController(title: "New Name", message: "Add a new name", preferredStyle: .alert)
+        let saveAction = UIAlertAction(title: "Save", style: .default) {
             [unowned self] action in
-            guard let tfxTextField = acxAlert.textFields?.first,
-                let sNameToSave = tfxTextField.text else {
+            guard let textField = alert.textFields?.first,
+                let nameToSave = textField.text else {
                     return
             }
-            //self.m_saNames.append(sNameToSave)
-            self.f_save(sName: sNameToSave)
-            self.m_tvxTableView.reloadData()
+            //self.names.append(sNameToSave)
+            self.save(name: nameToSave)
+            self.tableView.reloadData()
         }
-        let aaxCancelAction = UIAlertAction(title: "Cancel", style: .cancel )
-        acxAlert.addTextField()
-        acxAlert.addAction(aaxSaveAction)
-        acxAlert.addAction(aaxCancelAction)
-        present(acxAlert, animated: true)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel )
+        alert.addTextField()
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
     }
     
-    func f_save(sName: String) {
-        guard let adxAppDelegate = UIApplication.shared.delegate as? AppDelegate else {
+    func save(name: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
         //1
-        let mocManagedContext = adxAppDelegate.persistentContainer.viewContext
+        let managedContext = appDelegate.persistentContainer.viewContext
         
         //2
-        let edxEntity = NSEntityDescription.entity(forEntityName: "Person", in: mocManagedContext)!
-        let moxPerson = NSManagedObject(entity: edxEntity, insertInto: mocManagedContext)
+        let entity = NSEntityDescription.entity(forEntityName: "Person", in: managedContext)!
+        let person = NSManagedObject(entity: entity, insertInto: managedContext)
         
         
         //3
-        moxPerson.setValue(sName, forKeyPath: "name")
+        person.setValue(name, forKeyPath: "name")
         
         //4
         do {
-            try mocManagedContext.save()
-            m_moxaPeople.append(moxPerson)
+            try managedContext.save()
+            people.append(person)
             
-        } catch let exxError as NSError {
-            print("Could not save. \(exxError), \(exxError.userInfo)")
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
         }
     }
 }
@@ -98,15 +98,15 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return m_saNames.count
-        return m_moxaPeople.count
+        return people.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let tvcCell = tableView.dequeueReusableCell(withIdentifier: "20190303153600", for: indexPath)
-        //cell.textLabel?.text = m_saNames[indexPath.row]
-        let moxPerson = m_moxaPeople[indexPath.row]
-        tvcCell.textLabel?.text = moxPerson.value(forKeyPath: "name") as? String
-        return tvcCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "20190303153600", for: indexPath)
+        //cell.textLabel?.text = names[indexPath.row]
+        let person = people[indexPath.row]
+        cell.textLabel?.text = person.value(forKeyPath: "name") as? String
+        return cell
     }
 }
 
