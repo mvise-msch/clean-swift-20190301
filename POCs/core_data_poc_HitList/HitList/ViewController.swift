@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "The List"
+        //title = "The List"
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: ViewController.cellID)
         
