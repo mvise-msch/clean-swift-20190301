@@ -24,10 +24,13 @@ class ViewControllerTests: XCTestCase {
     }
     
     func test_title_is_The_List() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+     /*   let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let myview = storyboard.instantiateInitialViewController() as! ViewController
         let _ = myview.view
-        XCTAssertEqual("The List", myview.titleLabel!.text!)
+        XCTAssertEqual("The List", myview.titleLabel!.text!)*/
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nc = storyboard.instantiateInitialViewController() as! UINavigationController
+        
     }
 
 
