@@ -11,6 +11,8 @@ import CoreData
 
 class ViewController: UIViewController {
 
+    static let cellID = "20190303153600"
+    
     @IBOutlet weak var tableView: UITableView!
     
     // without Core Data -> var names: [String] = []
@@ -22,7 +24,7 @@ class ViewController: UIViewController {
 
         title = "The List"
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "20190303153600")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: ViewController.cellID)
         
     }
     
@@ -102,7 +104,7 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "20190303153600", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: ViewController.cellID, for: indexPath)
         //cell.textLabel?.text = names[indexPath.row]
         let person = people[indexPath.row]
         cell.textLabel?.text = person.value(forKeyPath: "name") as? String
