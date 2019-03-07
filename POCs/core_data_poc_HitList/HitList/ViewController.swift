@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     // with Core Data
     var people: [NSManagedObject] = []
     
+    let myTestableConstant = "yes"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -28,9 +28,13 @@ class ViewControllerTests: XCTestCase {
         let myview = storyboard.instantiateInitialViewController() as! ViewController
         let _ = myview.view
         XCTAssertEqual("The List", myview.titleLabel!.text!)*/
+
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nc = storyboard.instantiateInitialViewController() as! UINavigationController
-        
+        let vc = nc.viewControllers[0] as! ViewController
+        //let _ = vc.view
+        XCTAssertEqual("no", vc.myTestableConstant )
+
     }
 
 

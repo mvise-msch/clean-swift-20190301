@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C628798C2230FDAD00A448C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A8237F222C13AC00F6A93D /* ViewController.swift */; };
+		C628798D2230FDB800A448C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A8237D222C13AC00F6A93D /* AppDelegate.swift */; };
+		C628798E2230FDBC00A448C2 /* AppDelegate+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B0D350222E7E6800A995DA /* AppDelegate+CoreData.swift */; };
+		C628798F2230FDC300A448C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A82381222C13AC00F6A93D /* Main.storyboard */; };
+		C62879902230FDC700A448C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6A82387222C13AD00F6A93D /* Assets.xcassets */; };
+		C62879912230FDCB00A448C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A82389222C13AD00F6A93D /* LaunchScreen.storyboard */; };
+		C62879932230FDDE00A448C2 /* HitList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6A82384222C13AC00F6A93D /* HitList.xcdatamodeld */; };
 		C6A8237E222C13AC00F6A93D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A8237D222C13AC00F6A93D /* AppDelegate.swift */; };
 		C6A82380222C13AC00F6A93D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A8237F222C13AC00F6A93D /* ViewController.swift */; };
 		C6A82383222C13AC00F6A93D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A82381222C13AC00F6A93D /* Main.storyboard */; };
@@ -197,6 +204,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C62879912230FDCB00A448C2 /* LaunchScreen.storyboard in Resources */,
+				C62879902230FDC700A448C2 /* Assets.xcassets in Resources */,
+				C628798F2230FDC300A448C2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +228,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C628798D2230FDB800A448C2 /* AppDelegate.swift in Sources */,
+				C628798E2230FDBC00A448C2 /* AppDelegate+CoreData.swift in Sources */,
+				C628798C2230FDAD00A448C2 /* ViewController.swift in Sources */,
+				C62879932230FDDE00A448C2 /* HitList.xcdatamodeld in Sources */,
 				C6CCA128223012C000702BDC /* ViewControllerTests.swift in Sources */,
 				C6CCA0F422300EA300702BDC /* HitListTests.swift in Sources */,
 			);
